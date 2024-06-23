@@ -1,1 +1,1 @@
-export let makeUrl = () => {}
+export let makeUrl = () => { }
