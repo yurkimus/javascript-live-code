@@ -1,17 +1,17 @@
 ## Реализовать функцию создания URL с опциональными searchParams:
 
 - base - базовая часть URL, может представлять из себя как base, так и origin
-- pathname - путь, на который будет происходить запрос
-- searchParams - любое значение, соответствующее интерфейсу URLSearchParams
+- path - путь, на который будет происходить запрос
+- search - любое значение, соответствующее интерфейсу URLSearchParams
 
 ## Пример использования:
 
 ```javascript
-makeUrl('http://server.com/api/', 'users', '?search=Alex')
+url('http://server.com/api/', 'users', '?search=Alex')
 
-makeUrl('http://server.com/', 'api/users', [['search', 'Alex']])
+url('http://server.com/', 'api/users', [['search', 'Alex']])
 
-makeUrl('http://server.com/apii/', '/api')
+url('http://server.com/apii/', '/api')
 ```
 
 ## Обработать различные состояния запроса с выводом каждого изменения
@@ -23,10 +23,10 @@ makeUrl('http://server.com/apii/', '/api')
 - функция, выводящая текст для переданного состояния.
 
 ```js
-let networkState = null,
-  setNetworkState = (value) => ((networkState = value), networkState),
-  getMessage = (state) => {
-    switch (state) {
+let phase = null,
+  setPhase = value => (phase = value),
+  getPhaseMessage = phase => {
+    switch (phase) {
       case true:
         return 'Data is [Loading]'
 
