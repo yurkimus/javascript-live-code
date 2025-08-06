@@ -1,14 +1,16 @@
-let networkState = null,
-  setNetworkState = (value) => ((networkState = value), networkState),
-  getMessage = (state) => {
-    switch (state) {
-      case true:
-        return 'Data is [Loading]'
+let phase = null
 
-      case false:
-        return 'Data is [Loaded]'
+let setPhase = (value) => (phase = value)
 
-      default:
-        return `Message for state "${state}" is not defined`
-    }
+let getPhaseMessage = phase => {
+  switch (phase) {
+    case true:
+      return 'Data is [Loading]'
+
+    case false:
+      return 'Data is [Loaded]'
+
+    default:
+      return `Message for state "${state}" is not defined`
   }
+}
