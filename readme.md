@@ -23,20 +23,22 @@ url('http://server.com/apii/', '/api')
 - функция, выводящая текст для переданного состояния.
 
 ```js
-let phase = null,
-  setPhase = value => (phase = value),
-  getPhaseMessage = phase => {
-    switch (phase) {
-      case true:
-        return 'Data is [Loading]'
+let phase = null
 
-      case false:
-        return 'Data is [Loaded]'
+let setPhase = value => (phase = value)
 
-      default:
-        return `Message for state "${state}" is not defined`
-    }
+let getPhaseMessage = phase => {
+  switch (phase) {
+    case true:
+      return 'Data is [Loading]'
+
+    case false:
+      return 'Data is [Loaded]'
+
+    default:
+      return `Message for state "${state}" is not defined`
   }
+}
 ```
 
 Необходимо выполнить запрос до `https://jsonplaceholder.typicode.com/todos`, используя функцию из предыдущей задачи, запросив первые 10 элементов коллекции. Размер запрашиваемой коллекции задаётся при помощи поискового параметра`_limit`.
